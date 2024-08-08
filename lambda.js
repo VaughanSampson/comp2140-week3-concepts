@@ -22,10 +22,10 @@ function doo(z, w)
 }
 
 /* 
-Here are functions without a name, i.e, lambda expressions. 
+Here are functions without names, i.e, lambda expressions. 
 We have declared the expressions but we haven't used them for anything
 or assigned them to a variable so unlike a function which we can call
-by name, they currently disappears and has no purpose.
+by name, they currently disappears and have no purpose.
 */
 (x) => {
     console.log(x);
@@ -39,8 +39,8 @@ by name, they currently disappears and has no purpose.
     return z+w;
 }
 
-// We can also declare it like this if it has just one line.
-// NO curly brackets needed, and no "return" needed if we
+// We can also declare them like this if they have just one line.
+// NO curly brackets needed, and no "return" needed.
 (x) => console.log(x);
 y => y * 2;
 (z, w) => z+w;
