@@ -1,109 +1,94 @@
 const userData = [
-    {
-      id: 1,
-      name: "Alice Johnson"
-    },
-    {
-      id: 2,
-      name: "Bob Smith"
-    },
-    {
-      id: 3,
-      name: "Charlie Brown"
-    },
-    {
-      id: 4,
-      name: "Diana Prince"
-    },
-    {
-      id: 5,
-      name: "Edward Nygma"
-    }
+  {
+    id: 1,
+    name: "Alice Johnson"
+  },
+  {
+    id: 3,
+    name: "Charlie Brown"
+  },
+  {
+    id: 2,
+    name: "Bob Smith"
+  },
+  {
+    id: 4,
+    name: "Diana Prince"
+  },
+  {
+    id: 5,
+    name: "Edward Nygma"
+  },
+  {
+    id: 6,
+    name: "Alice Johnson" // TWO ALICES!
+  },
 ]
 
 const teamData = [
-      {
-        id: 1,
-        name: "Development",
-        members: [
-          1, 2, 3
-        ]
-      },
-      {
-        id: 2,
-        name: "Marketing",
-        members: [
-          2, 4
-        ]
-      },
-      {
-        id: 3,
-        name: "Design",
-        members: [
-          1, 3, 4
-        ]
-      }
+    {
+      id: 1,
+      name: "Development",
+      members: [
+        1, 2, 3
+      ]
+    },
+    {
+      id: 2,
+      name: "Marketing",
+      members: [
+        2, 4
+      ]
+    },
+    {
+      id: 3,
+      name: "Design",
+      members: [
+        1, 3, 4, 6
+      ]
+    }
 ]
 
 
-// Challenge 1: get a list of all users sorted in alphabetical order
+// Challenge 1: Get a list of all users sorted in alphabetical order
+console.log("Challenge 1");
 
-let userNames = userData.map(s => s.name).sort();
+const usersSorted = userData.sort((a,b) =>  a.name.localeCompare(b.name));
+console.log(usersSorted);
+
+// Challenge 2: Get a list of all users names only
+console.log("\nChallenge 2");
+
+const userNames = userData.map((a) => a.name);
 console.log(userNames);
 
-// Challenge 2: Get a list of every user id of users an 'a' in their name
+// Challenge 3: Get a list of every user id of users with an 'a' in their name
+console.log("\nChallenge 3");
 
-let userIDs = userData.filter(s => s.name.toLowerCase().includes('a')).map(s => s["id"]);
-console.log(userIDs);
+const filteredNames = userData.filter(user => user.name.toLowerCase().includes('a'));
+const filteredUserIDs = filteredNames.map((a) => a.id);
+console.log(filteredUserIDs);
 
-// Challenge 3: Get the first team "Alice Johnson" is a member of
+//Challenge 4: Get the first team each "Alice Johnson" is a member of
+console.log("\nChallenge 4");
 
-const Alice = userData.filter((user) => {
-    return user.name === "Alice Johnson"
+const alices = userData.filter((user) =>  user.name === "Alice Johnson");
+
+const alicesFirstTeam = alices.map((user) => {
+return teamData.find((team) => team.members.includes(user.id));
+});
+console.log(alicesFirstTeam);
+
+// Challenge 5: List EVERY team with each member's name
+console.log("\nChallenge 5");
+
+const teamsWithNames = teamData.map((team) => {
+  const memberNames = team.members.map((memberId) => userData.find((user) => user.id === memberId).name);
+  return {
+    id: team.id,
+    name: team.name,
+    members: memberNames
+  }
 });
 
-const AlicesFirstTeam = Alice.map((user) => {
-    return teamData.find((team) => {
-        return team.members.includes(user["id"]);
-    });
-});
-
-console.log(AlicesFirstTeam);
-
-
-// Challenge 4: List each user with the first team they are a part of
-
-const userWithTeams = userData.map((user) => {
-    const teamOfUser = teamData.find((team) => {
-        return team.members.includes(user["id"]);
-    })?? null;
-
-    if(teamOfUser === null)
-    {
-        return null;
-    }
-
-    return {
-        userID: user.id,
-        userName: user.name,
-        firstTeam: teamOfUser.name
-    }
-}).filter(s => s != null);
-
-console.log(userWithTeams);
-
-
-// Challenge 5: List EVERY team for each person.
-
-const teamsWithUsers = teamData.map((team)  => {
-    const userList = team.members.map((userID) => {
-        return userData.find((user) => user.id === userID);
-    });
-    return {
-        teamName: team.name,
-        users: userList
-    }
-});
- 
-console.log(teamsWithUsers);
-console.log(teamsWithUsers[0].users);
+console.log(teamsWithNames);

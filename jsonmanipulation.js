@@ -1,3 +1,6 @@
+// Here is some json data and problems to solve with said data.
+// Solutions are given in the file jsonmanipulationsolutions.js
+
 const userData = [
     {
       id: 1,
@@ -52,43 +55,20 @@ const teamData = [
 
 // Challenge 1: Get a list of all users sorted in alphabetical order
 console.log("Challenge 1");
-
-const usersSorted = userData.sort((a,b) =>  a.name.localeCompare(b.name));
-console.log(usersSorted);
+ 
 
 // Challenge 2: Get a list of all users names only
 console.log("\nChallenge 2");
-
-const userNames = userData.map((a) => a.name);
-console.log(userNames);
+ 
 
 // Challenge 3: Get a list of every user id of users with an 'a' in their name
 console.log("\nChallenge 3");
-
-const filteredNames = userData.filter(user => user.name.toLowerCase().includes('a'));
-const filteredUserIDs = filteredNames.map((a) => a.id);
-console.log(filteredUserIDs);
+ 
 
 //Challenge 4: Get the first team each "Alice Johnson" is a member of
 console.log("\nChallenge 4");
-
-const alices = userData.filter((user) =>  user.name === "Alice Johnson");
-
-const alicesFirstTeam = alices.map((user) => {
-  return teamData.find((team) => team.members.includes(user.id));
-});
-console.log(alicesFirstTeam);
+ 
 
 // Challenge 5: List EVERY team with each member's name
 console.log("\nChallenge 5");
-
-const teamsWithNames = teamData.map((team) => {
-    const memberNames = team.members.map((memberId) => userData.find((user) => user.id === memberId).name);
-    return {
-      id: team.id,
-      name: team.name,
-      members: memberNames
-    }
-});
-
-console.log(teamsWithNames);
+ 
