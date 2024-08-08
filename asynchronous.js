@@ -59,7 +59,7 @@ may or may not be delivered in the future.
 */
 
 function wait2Seconds(){
-    setTimeout(() => { // Uses a promise but its not explicated
+    setTimeout(() => { 
         console.log("Waited 2 seconds");
     }, 2000); 
 }
