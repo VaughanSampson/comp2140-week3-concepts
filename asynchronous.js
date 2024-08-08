@@ -59,9 +59,10 @@ may or may not be delivered in the future.
 */
 
 function wait2Seconds(){
-    setTimeout(() => { 
+    setTimeout(() => {
         console.log("Waited 2 seconds");
     }, 2000); 
+    console.log("Continue on to do other tasks...");
 }
 
 // Here we use promises explicitly:
