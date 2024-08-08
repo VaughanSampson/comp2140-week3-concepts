@@ -44,7 +44,6 @@ function doAsynchronousPrompt(){
 
       // This will be printed immediately; we aren't waiting for input
       // before continuing.
-
       console.log("Continue on to do other tasks...");
 }
 
