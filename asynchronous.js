@@ -6,14 +6,14 @@ import readline from 'readline';
 
 /*
 As beginners, we are likely to learn completely synchronous programming.
-That is, we will write scripts where things will predictably happen in
-a certain order of execution without exception.
+That is, we will write scripts where lines will predictably execute in
+a certain order of without exception.
 
 In real applications this is not usually the case. Real applications need
 to react to input from external sources (user input, messages from a server, 
-etc.) asynchronously. We usually wouldn't want pause a whole application 
-every time we query input from the user, nor pause as we wait for info from 
-a server.
+etc.) asynchronously. We usually wouldn't want to pause a whole application 
+every time we query input from the user, nor pause as we wait for a response 
+from a server.
 
 Hence, asynchronous programming:
 */
