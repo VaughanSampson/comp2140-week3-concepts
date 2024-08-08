@@ -82,7 +82,7 @@ let newArray1 = array.map(timesTwo);
 console.log(newArray1);
 
 // DOUBLE EACH ELEMENT WITH MAP STYLE 2
-let newArray2 = array.map(s => s *2);
+let newArray2 = array.map(s => s*2);
 console.log(newArray1);
 
 /* 
