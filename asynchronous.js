@@ -34,10 +34,13 @@ function doAsynchronousPrompt(){
         output: process.stdout,
       });
       
-      rl.question(`Getting Input...\n`, name => {  // function/action to be called when line is inputted 
-        console.log(name);
-        rl.close(); // Closes input-output
-      });
+      rl.question(`Getting Input...\n`, 
+        // we "subscribe" this function/action to be called when line is inputted 
+        name => {  
+            console.log(name);
+            rl.close(); // Closes input-output
+        }
+     );
 
       // This will be printed immediately; we aren't waiting for input
       // before continuing.
