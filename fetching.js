@@ -16,10 +16,10 @@ function fetchData() {
       }
       return response.json();
     })
-    .then(data => {
+    .then(data => { // then do this lambda function on what is returned
       console.log('Data fetched:', data);
     })
-    .catch(error => {
+    .catch(error => { // if there is a failure, do this lambda function instead
       console.error('There was a problem with the fetch operation:', error);
     });
 }
