@@ -85,6 +85,8 @@ console.log(newArray1);
 let newArray2 = array.map(s => s*2);
 console.log(newArray1);
 
+// STYLE 1 is longer than STYLE 2, but we could reuse the function timesTwo multiple times.
+
 /* 
 Its up to the developer's judgement where to use lambda functions/expressions
 over normal functions. But here are some main considerations:
@@ -93,7 +95,7 @@ over normal functions. But here are some main considerations:
     and readable to define it as a typical named function.
 
 -   If we are only using a function once, in one specific context, it is
-    likely cleaner and more maintainable to define only in that one place
+    likely cleaner and more maintainable to define it only in that one place
     as a lambda expression (or maybe an embedded function!).
 
 */
