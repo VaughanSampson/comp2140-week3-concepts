@@ -7,7 +7,7 @@ import readline from 'readline';
 /*
 As beginners, we are likely to learn completely synchronous programming.
 That is, we will write scripts where lines will predictably execute in
-a certain order of without exception.
+a certain order without exception.
 
 In real applications this is not usually the case. Real applications need
 to react to input from external sources (user input, messages from a server, 
@@ -42,14 +42,14 @@ function doAsynchronousPrompt(){
         }
      );
 
-      // This will be printed immediately; we aren't waiting for input
+      // This next line will be printed immediately, i.e., we aren't waiting for input
       // before continuing.
       console.log("Continue on to do other tasks...");
 }
 
 /*
 Asynchronous programming is crucial for websites:
-we assign events to be called when the user clicks buttons,
+we assign events to be called when the user clicks buttons
 and we assign events to run when servers/APIs respond
 to our requests.
 
@@ -124,7 +124,8 @@ function sumOver4Seconds(){
 
 // We use 'async' to describe that this function must return a promise.
 // We use 'await' to stop executing until a promise is resolved or rejected.
-// In other words, 'await' makes things synchronous again.
+// In other words, 'await' makes things synchronous again by pausing untill
+// an asynchronous promise is completed.
 
 function wait2SecondsFullAsync(){
 
@@ -132,7 +133,7 @@ function wait2SecondsFullAsync(){
     // We use async in this function to describe that the function must return a promise
     async function wait2Seconds(){ // Function creates a promise
         return new Promise((resolve, reject) => {
-        // Making a promise that 10 seconds will pass
+        // Making a promise that 2 seconds will pass
         setTimeout(() => {
             resolve("Completed 2 seconds");
         }, 2000);
@@ -151,20 +152,19 @@ function wait2SecondsFullAsync(){
 
 } 
 
-// We must define function with async, as it uses await inside
+// We must define function with async, as it uses await inside, hence it must return a Promise
 async function wait2SecondsAwait(){
     console.log("Start 2 second wait");
     async function wait2Seconds(){
         return new Promise((resolve, reject) => {
-        // Making a promise that 10 seconds will pass
+        // Making a promise that 2 seconds will pass
         setTimeout(() => {
             resolve("Waited 2 seconds");
         }, 2000);
     });
     }
 
-    // await makes us wait until the promis is fulfilled or rejected
-    // before continuing
+    // await makes us wait until the promise is fulfilled or rejected before continuing
     let message = await wait2Seconds(); 
     console.log(message); 
 
